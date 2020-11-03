@@ -1,3 +1,15 @@
+<?php
+include("dbconnect.php");
+
+
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+
+$myusername = mysqli_real_escape_string($db,$_POST['username']);
+$mypassword = mysqli_real_escape_string($db,$_POST['password']);
+
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
