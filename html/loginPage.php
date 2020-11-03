@@ -4,11 +4,11 @@ include("dbconnect.php");
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
 
-   $username = mysqli_real_escape_string($db,$_POST['username']);
-   $password = mysqli_real_escape_string($db,$_POST['password']);
+   $username = mysqli_real_escape_string($link,$_POST['username']);
+   $password = mysqli_real_escape_string($link,$_POST['password']);
 
    $sql = "SELECT id FROM User WHERE Username = '$username' and Password = '$password'";
-   $result = mysqli_query($db, $sql);
+   $result = mysqli_query($link, $sql);
    $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
    $active = $row['active'];
 
