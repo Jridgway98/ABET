@@ -15,12 +15,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
    $count = mysqli_num_rows($result);
 
    if($count == 1) {
-      echo "Success!";
+
+      header("location: welcome.html");
    }
 
    else{
+      $error = "Invalid username or password.";
 
-     $error = "Invalid username or password.";
+      header("location: notWelcome.html");
     }
 
  }
@@ -49,7 +51,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
       <p id="login-error-msg">Invalid email <span id="error-msg-second-line">and/or password</span></p>
     </div>
     
-    <form id="login-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" "method="post">
+    <form id="login-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
       <input type="text" name="username" id="email-field" class="login-form-field" placeholder="Username">
       <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
       <input type="submit" value="Login" id="login-form-submit">
