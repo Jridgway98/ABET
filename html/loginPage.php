@@ -12,7 +12,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
    $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
    $active = $row['active'];
 
-//   $count = mysqli_num_rows($result);
+   $count = mysqli_num_rows($result);
 
 //   if($count == 1) {
 //     session_register("myusername");
