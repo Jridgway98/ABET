@@ -4,8 +4,23 @@ include("dbconnect.php");
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
 
-$myusername = mysqli_real_escape_string($db,$_POST['username']);
-$mypassword = mysqli_real_escape_string($db,$_POST['password']);
+$username = mysqli_real_escape_string($db,$_POST['username']);
+$password = mysqli_real_escape_string($db,$_POST['password']);
+
+$sql = "SELECT id FROM User WHERE username = '$username' and password = '$password'";
+$result = mysqli_query($db, $sql);
+$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+$active = $row['active'];
+
+$count = mysqli_num_rows($result);
+
+if(count == 1) {
+  session_register("myusername");
+  $_SESSION['login_user'] = $username;
+  else{
+    $error = "Invalid username or password."
+  }
+}
 
 }
 ?>
