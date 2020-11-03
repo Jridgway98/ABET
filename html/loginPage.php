@@ -7,7 +7,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
    $username = mysqli_real_escape_string($db,$_POST['username']);
    $password = mysqli_real_escape_string($db,$_POST['password']);
 
-   $sql = "SELECT id FROM User WHERE username = '$username' and password = '$password'";
+   $sql = "SELECT id FROM User WHERE Username = '$username' and Password = '$password'";
    $result = mysqli_query($db, $sql);
    $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
    $active = $row['active'];
@@ -15,13 +15,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
    $count = mysqli_num_rows($result);
 
    if($count == 1) {
-
       header("location: welcome.html");
    }
-
    else{
-      $error = "Invalid username or password.";
-
       header("location: notWelcome.html");
     }
 
