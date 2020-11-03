@@ -4,8 +4,8 @@ include("dbconnect.php");
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
 
-//   $username = mysqli_real_escape_string($db,$_POST['username']);
-//   $password = mysqli_real_escape_string($db,$_POST['password']);
+   $username = mysqli_real_escape_string($db,$_POST['username']);
+   $password = mysqli_real_escape_string($db,$_POST['password']);
 
 //   $sql = "SELECT id FROM User WHERE username = '$username' and password = '$password'";
 //   $result = mysqli_query($db, $sql);
