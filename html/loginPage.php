@@ -14,15 +14,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
    $count = mysqli_num_rows($result);
 
-   echo $count; 
-   // if($count == 1) {
-   //    echo "Success!"
-   // }
+   if($count == 1) {
+      echo "Success!";
+   }
 
-   // else{
+   else{
 
-   //   $error = "Invalid username or password."
-   // }
+     $error = "Invalid username or password.";
+    }
 
  }
 ?>
