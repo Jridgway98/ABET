@@ -1,8 +1,8 @@
 <?php
 
 define('DB_SERVER', 'localhost');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', 'Jr907878@');
+define('DB_USERNAME', 'efish');
+define('DB_PASSWORD', 'efish');
 define('DB_NAME', 'ABET');
 
 $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
