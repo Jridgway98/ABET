@@ -1,27 +1,38 @@
 <?php
+/*
+The php script in on this page is mainly used to handle the action of logging a user in.
+*/
+
+//import database connection
 include("dbconnect.php");
 
+//Activates once the post method is called in the html form below
+  if($_SERVER["REQUEST_METHOD"] == "POST") {
 
-if($_SERVER["REQUEST_METHOD"] == "POST") {
+    //User information retrieved from the html form
+    $username = mysqli_real_escape_string($link,$_POST['username']);
+    $password = mysqli_real_escape_string($link,$_POST['password']);
 
-   $username = mysqli_real_escape_string($link,$_POST['username']);
-   $password = mysqli_real_escape_string($link,$_POST['password']);
+    //SQL query
+    $sql = "SELECT id FROM User WHERE Username = '$username' and  Password = '$password'";
+    $result = mysqli_query($link, $sql);
+    $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+    $active = $row['active'];
 
-   $sql = "SELECT id FROM User WHERE Username = '$username' and Password = '$password'";
-   $result = mysqli_query($link, $sql);
-   $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-   $active = $row['active'];
+    //Stores the value of rows retrieved from database
+    $count = mysqli_num_rows($result);
 
-   $count = mysqli_num_rows($result);
-
-   if($count == 1) {
+    //If count is equal to 1, then that user does exists and is authenticated.
+    if($count == 1) {
+      //redirect upon sucessful login
       header("location: welcome.html");
-   }
-   else{
+    }
+    else{
+      //Redirect in case of unsuccessful login
       header("location: notWelcome.html");
     }
 
- }
+  }
 ?>
 
 <!DOCTYPE html>
