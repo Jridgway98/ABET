@@ -5,7 +5,7 @@ The purpose of this php file is to establish a database connection. This file is
 */
 
 //Define databse attributes
-define('DB_SERVER', 'database');
+define('DB_SERVER', 'mysql:3306');
 define('DB_USERNAME', 'efish');
 define('DB_PASSWORD', 'efish');
 define('DB_NAME', 'ABET');
