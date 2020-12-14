@@ -63,6 +63,11 @@ include("dbconnect.php");
       <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
       <input type="submit" value="Login" id="login-form-submit">
     </form>
+
+    <form action="http://signUpPage.html">
+         <input type="submit" value="Sign Up">
+    </form>
+ 
   
   </main>
 </body>
