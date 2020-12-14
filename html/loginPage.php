@@ -10,11 +10,11 @@ include("dbconnect.php");
   if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     //User information retrieved from the html form
-    $username = mysqli_real_escape_string($link,$_POST['username']);
+    $email = mysqli_real_escape_string($link,$_POST['email']);
     $password = mysqli_real_escape_string($link,$_POST['password']);
 
     //SQL query
-    $sql = "SELECT id FROM User WHERE Username = '$username' and  Password = '$password'";
+    $sql = "SELECT id FROM Users WHERE email = '$email' and  password = '$password'";
     $result = mysqli_query($link, $sql);
     $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
     $active = $row['active'];
@@ -59,12 +59,12 @@ include("dbconnect.php");
     </div>
     
     <form id="login-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-      <input type="text" name="username" id="email-field" class="login-form-field" placeholder="Username">
+      <input type="text" name="email" id="email-field" class="login-form-field" placeholder="Email">
       <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
       <input type="submit" value="Login" id="login-form-submit">
     </form>
 
-    <form action="http://./signUpPage.html">
+    <form action="<?php header('location: signUpPage.html') ?>">
          <input type="submit" value="Sign Up">
     </form>
  
