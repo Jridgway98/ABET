@@ -64,7 +64,7 @@ include("dbconnect.php");
       <input type="submit" value="Login" id="login-form-submit">
     </form>
 
-    <form action="<?php header('location: signUpPage.html') ?>">
+    <form action="/signUpPage.html">
          <input type="submit" value="Sign Up">
     </form>
  
